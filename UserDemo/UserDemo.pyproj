@@ -3,13 +3,14 @@
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <SchemaVersion>2.0</SchemaVersion>
     <ProjectGuid>5b6a0031-52c3-4911-ba72-a0b4aeca2c8c</ProjectGuid>
-    <ProjectHome>.</ProjectHome>
-    <StartupFile>PythonApplication1.py</StartupFile>
+    <ProjectHome>
+    </ProjectHome>
+    <StartupFile>UserDemo.py</StartupFile>
     <SearchPath>
     </SearchPath>
     <WorkingDirectory>.</WorkingDirectory>
     <OutputPath>.</OutputPath>
-    <Name>PythonApplication1</Name>
+    <Name>UserDemo</Name>
     <RootNamespace>PythonApplication1</RootNamespace>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)' == 'Debug' ">
@@ -21,7 +22,10 @@
     <EnableUnmanagedDebugging>false</EnableUnmanagedDebugging>
   </PropertyGroup>
   <ItemGroup>
-    <Compile Include="PythonApplication1.py" />
+    <Compile Include="UserDemo.py" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="imagen_base64.txt" />
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)\Python Tools\Microsoft.PythonTools.targets" />
   <!-- Uncomment the CoreCompile target to enable the Build command in
