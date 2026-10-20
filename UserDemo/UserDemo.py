@@ -1,4 +1,3 @@
-
 import json
 import asyncio
 import os
@@ -213,12 +212,12 @@ def reconstruir_datos_usuario(cursor, usuario):
 
     empresa_id = str(row[0]).strip()
 
-    if not re.fullmatch(r"[A-Za-z0-9]+", empresa_id):
-        raise ValueError(f"EmpresaID inválida: {empresa_id}")
-
-    base_datos = empresa_id
-
     info(f"Empresa asignada al grupo SUPERVISOR: {empresa_id}")
+
+    # La base de datos es CONTACTFORMPBP,
+    # no el nombre descriptivo de la empresa.
+    base_datos = "CONTACTFORMPBP"
+
     info(f"Ejecutando reconstrucción en la base {base_datos}")
 
     cursor.execute(
@@ -386,18 +385,18 @@ def crear_usuario(
             # ASIGNAR GRUPO
             # -------------------------------------------------
 
-            info("Asignando grupo SUPERVISOR")
+            info("Asignando grupo 01DEMO")
 
             cursor.execute(
                 """
                 EXEC info_pertenencias_single_insert
                     @User = ?,
-                    @Grupo = 'SUPERVISOR'
+                    @Grupo = '01DEMO'
                 """,
                 dto_usuario["Usuario"]
             )
 
-            info("Grupo SUPERVISOR asignado")
+            info("Grupo 01DEMO asignado")
 
             # -------------------------------------------------
             # RECONSTRUIR DATOS EN LA EMPRESA DEL GRUPO
@@ -611,7 +610,7 @@ async def message_handler(msg):
             "IGGLOBALONLINE_I18N_DICCIONARIO": "1",
             "IGGLOBALONLINE_USR_EMAIL_NOTIFICATION": data["EMAIL"],
             "seleccionGrupos": [
-                {"Grupo_Id": "SUPERVISOR"}
+                {"Grupo_Id": "01DEMO"}
             ],
             "valueDefault": []
         }
